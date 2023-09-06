@@ -1,6 +1,7 @@
 package br.edu.up.app.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import br.edu.up.app.MainActivity
 import br.edu.up.app.databinding.ActivityLoginBinding
 
 import br.edu.up.app.R
@@ -60,6 +62,9 @@ class LoginActivity : AppCompatActivity() {
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
 
             //Complete and destroy login activity once successful
             finish()
